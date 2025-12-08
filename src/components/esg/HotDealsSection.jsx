@@ -17,18 +17,19 @@ const HotDealsCard = ({
     const seed = (idx % 5) + 1;
     const colors = ['#10b981', '#065f46', '#34d399', '#a7f3d0', '#047857'];
     const colorIndex = idx % colors.length;
-    const placeholderText = title.split(' ').map(w => w[0]).join(''); // Use initials for text
+    const placeholderText = title.split(' ').map(w => w[0]).join('');
     return `https://placehold.co/400x400/${colors[colorIndex].replace('#', '')}/ffffff?text=${placeholderText}`;
   }, [title]);
 
   const placeholderImg = useMemo(() => getPlaceholderImage(index), [index, getPlaceholderImage]);
+  const displayImage = imageUrl || placeholderImg;
 
   return (
     <div className="relative bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 ease-in-out h-full flex flex-col">
       {/* Product Image and Discount Badge */}
       <div className="relative w-full h-48 sm:h-56 bg-gray-50 overflow-hidden">
         <img
-          src={placeholderImg}
+          src={displayImage}
           alt={title}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
@@ -96,7 +97,8 @@ export default function HotDealsSection() {
       reviews: 524,
       tags: ["Staff Pick", "AveoEarth Certified"],
       discount: "-31%",
-      category: "Home & Living"
+      category: "Home & Living",
+      imageUrl: "/products/natural_jute_tote_bag.png"
     },
     {
       title: "Eco Bamboo Bottle",
@@ -106,7 +108,8 @@ export default function HotDealsSection() {
       reviews: 312,
       tags: ["Best Seller", "AveoEarth Certified"],
       discount: "-25%",
-      category: "Drinkware"
+      category: "Drinkware",
+      imageUrl: "/products/eco_bamboo_water_bottle.png"
     },
     {
       title: "Organic Cotton Tote",
@@ -116,7 +119,8 @@ export default function HotDealsSection() {
       reviews: 289,
       tags: ["Staff Pick", "Eco-Friendly"],
       discount: "-24%",
-      category: "Sustainable Fashion" // Changed from 'Fashion' to match categories list
+      category: "Sustainable Fashion",
+      imageUrl: "/products/organic_cotton_tote_bag.png"
     },
     {
       title: "Recycled Paper Notebook",
@@ -126,7 +130,8 @@ export default function HotDealsSection() {
       reviews: 156,
       tags: ["New Arrival", "AveoEarth Certified"],
       discount: "-30%",
-      category: "Stationery"
+      category: "Stationery",
+      imageUrl: "/products/recycled_paper_notebook.png"
     },
     {
       title: "Hemp Fiber Mat",
@@ -136,7 +141,8 @@ export default function HotDealsSection() {
       reviews: 432,
       tags: ["Premium", "Staff Pick"],
       discount: "-31%",
-      category: "Home & Living"
+      category: "Home & Living",
+      imageUrl: "/products/hemp_fiber_yoga_mat.png"
     },
     {
       title: "Cork Phone Case",
@@ -146,7 +152,8 @@ export default function HotDealsSection() {
       reviews: 201,
       tags: ["Trending", "Eco-Friendly"],
       discount: "-27%",
-      category: "Upcycled & Handmade" // Changed from 'Tech Accessories' to match categories list
+      category: "Upcycled & Handmade",
+      imageUrl: "/products/cork_phone_case.png"
     },
     {
       title: "Organic Cotton T-Shirt",
@@ -156,7 +163,8 @@ export default function HotDealsSection() {
       reviews: 289,
       tags: ["Organic", "Fashion"],
       discount: "-23%",
-      category: "Sustainable Fashion" // Changed from 'Fashion' to match categories list
+      category: "Sustainable Fashion",
+      imageUrl: "/products/organic_cotton_t-shirt.png"
     },
     {
       title: "Bamboo Dinnerware Set",
@@ -166,7 +174,8 @@ export default function HotDealsSection() {
       reviews: 156,
       tags: ["Premium", "Staff Pick"],
       discount: "-26%",
-      category: "Home & Living"
+      category: "Home & Living",
+      imageUrl: "/products/bamboo_dinnerware_set.png"
     },
     {
       title: "Recycled Plastic Pen",
@@ -176,7 +185,8 @@ export default function HotDealsSection() {
       reviews: 89,
       tags: ["Eco-Friendly", "Affordable"],
       discount: "-29%",
-      category: "Stationery"
+      category: "Stationery",
+      imageUrl: "/products/recycled_plastic_pen.png"
     },
     {
       title: "Steel Water Tumbler",
@@ -186,7 +196,8 @@ export default function HotDealsSection() {
       reviews: 234,
       tags: ["Durable", "Best Seller"],
       discount: "-24%",
-      category: "Drinkware"
+      category: "Drinkware",
+      imageUrl: "/products/stainless_steel_tumbler.png"
     },
     {
       title: "Natural Moisturizer",
@@ -196,7 +207,8 @@ export default function HotDealsSection() {
       reviews: 167,
       tags: ["Vegan", "Clean"],
       discount: "-24%",
-      category: "Clean Beauty" // New product for 'Clean Beauty'
+      category: "Clean Beauty",
+      imageUrl: "/products/natural_moisturizer_cream.png"
     },
     {
       title: "Linen Throw Pillow",
@@ -206,7 +218,8 @@ export default function HotDealsSection() {
       reviews: 198,
       tags: ["Comfort", "Natural"],
       discount: "-25%",
-      category: "Home & Living"
+      category: "Home & Living",
+      imageUrl: "/products/linen_throw_pillow.png"
     }
   ], []);
 

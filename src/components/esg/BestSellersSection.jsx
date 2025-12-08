@@ -4,7 +4,7 @@ export default function BestSellersSection() {
   // Best seller products data
   const bestSellerProducts = [
     {
-      imageUrl: "/hotdeals.png",
+      imageUrl: "/products/natural_jute_tote_bag.png",
       category: "Home & Kitchen", 
       title: "Jute Bag | Originally Sourced",
       description: "Sustainable jute bag for daily use",
@@ -16,7 +16,7 @@ export default function BestSellersSection() {
       size: "default"
     },
     {
-      imageUrl: "/hotdeals.png",
+      imageUrl: "/products/eco_bamboo_water_bottle.png",
       category: "Personal Care",
       title: "Eco Bamboo Water Bottle",
       description: "BPA-free bamboo water bottle",
@@ -28,7 +28,7 @@ export default function BestSellersSection() {
       size: "default"
     },
     {
-      imageUrl: "/hotdeals.png",
+      imageUrl: "/products/organic_cotton_t-shirt.png",
       category: "Fashion",
       title: "Organic Cotton T-Shirt",
       description: "100% organic cotton sustainable tee",
@@ -40,7 +40,7 @@ export default function BestSellersSection() {
       size: "default"
     },
     {
-      imageUrl: "/hotdeals.png",
+      imageUrl: "/products/recycled_paper_diary.png",
       category: "Stationery",
       title: "Recycled Paper Diary",
       description: "Eco-friendly recycled paper diary",
@@ -52,7 +52,7 @@ export default function BestSellersSection() {
       size: "default"
     },
     {
-      imageUrl: "/hotdeals.png",
+      imageUrl: "/products/hemp_fiber_backpack.png",
       category: "Accessories",
       title: "Hemp Fiber Backpack",
       description: "Durable hemp fiber travel backpack",

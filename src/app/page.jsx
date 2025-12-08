@@ -100,7 +100,7 @@ export default function HomePage() {
       name: "Eco Bamboo Water Bottle",
       price: "₹1,299",
       originalPrice: "₹1,599",
-      images: ["/hero1.png", "/hero1.png", "/hero1.png"],
+      images: ["/products/eco_bamboo_water_bottle.png", "/products/eco_bamboo_water_bottle.png", "/products/eco_bamboo_water_bottle.png"],
       ecoScore: "95%",
       badges: ["Zero Waste"]
     },
@@ -109,7 +109,7 @@ export default function HomePage() {
       name: "Organic Cotton Bag Set",
       price: "₹899",
       originalPrice: "₹1,199",
-      images: ["/hero1.png", "/hero1.png", "/hero1.png"],
+      images: ["/products/organic_cotton_tote_bag.png", "/products/organic_cotton_tote_bag.png", "/products/organic_cotton_tote_bag.png"],
       ecoScore: "92%",
       badges: ["Organic"]
     },
@@ -118,7 +118,7 @@ export default function HomePage() {
       name: "Natural Skincare Bundle",
       price: "₹2,499",
       originalPrice: "₹3,199",
-      images: ["/hero1.png", "/hero1.png", "/hero1.png"],
+      images: ["/products/organic_skincare_set.png", "/products/organic_skincare_set.png", "/products/organic_skincare_set.png"],
       ecoScore: "98%",
       badges: ["Cruelty-Free"]
     },
@@ -127,7 +127,7 @@ export default function HomePage() {
       name: "Sustainable Kitchen Set",
       price: "₹1,899",
       originalPrice: "₹2,399",
-      images: ["/hero1.png", "/hero1.png", "/hero1.png"],
+      images: ["/products/sustainable_kitchen_set.png", "/products/sustainable_kitchen_set.png", "/products/sustainable_kitchen_set.png"],
       ecoScore: "94%",
       badges: ["Plastic-Free"]
     },
@@ -136,7 +136,7 @@ export default function HomePage() {
       name: "Recycled Glass Jars",
       price: "₹599",
       originalPrice: "₹799",
-      images: ["/hero1.png", "/hero1.png", "/hero1.png"],
+      images: ["/products/recycled_glass_jars.png", "/products/recycled_glass_jars.png", "/products/recycled_glass_jars.png"],
       ecoScore: "96%",
       badges: ["Recycled"]
     },
@@ -145,7 +145,7 @@ export default function HomePage() {
       name: "Bamboo Cutlery Set",
       price: "₹399",
       originalPrice: "₹599",
-      images: ["/hero1.png", "/hero1.png", "/hero1.png"],
+      images: ["/products/bamboo_cutlery_set_product.png", "/products/bamboo_cutlery_set_product.png", "/products/bamboo_cutlery_set_product.png"],
       ecoScore: "93%",
       badges: ["Biodegradable"]
     },
@@ -154,7 +154,7 @@ export default function HomePage() {
       name: "Hemp Tote Bag",
       price: "₹799",
       originalPrice: "₹999",
-      images: ["/hero1.png", "/hero1.png", "/hero1.png"],
+      images: ["/products/hemp_tote_bag_product.png", "/products/hemp_tote_bag_product.png", "/products/hemp_tote_bag_product.png"],
       ecoScore: "91%",
       badges: ["Hemp"]
     },
@@ -163,7 +163,7 @@ export default function HomePage() {
       name: "Solar Phone Charger",
       price: "₹1,599",
       originalPrice: "₹2,199",
-      images: ["/hero1.png", "/hero1.png", "/hero1.png"],
+      images: ["/products/solar_phone_charger_product.png", "/products/solar_phone_charger_product.png", "/products/solar_phone_charger_product.png"],
       ecoScore: "97%",
       badges: ["Solar"]
     },
@@ -172,7 +172,7 @@ export default function HomePage() {
       name: "Eco-Friendly Yoga Mat",
       price: "₹1,899",
       originalPrice: "₹2,499",
-      images: ["/hero1.png", "/hero1.png", "/hero1.png"],
+      images: ["/products/hemp_fiber_yoga_mat.png", "/products/hemp_fiber_yoga_mat.png", "/products/hemp_fiber_yoga_mat.png"],
       ecoScore: "94%",
       badges: ["Natural Rubber"]
     },
@@ -181,7 +181,7 @@ export default function HomePage() {
       name: "Bamboo Phone Case",
       price: "₹699",
       originalPrice: "₹999",
-      images: ["/hero1.png", "/hero1.png", "/hero1.png"],
+      images: ["/products/bamboo_phone_case_product.png", "/products/bamboo_phone_case_product.png", "/products/bamboo_phone_case_product.png"],
       ecoScore: "96%",
       badges: ["Biodegradable"]
     },
@@ -190,7 +190,7 @@ export default function HomePage() {
       name: "Organic Tea Collection",
       price: "₹1,299",
       originalPrice: "₹1,599",
-      images: ["/hero1.png", "/hero1.png", "/hero1.png"],
+      images: ["/products/organic_tea_collection_product.png", "/products/organic_tea_collection_product.png", "/products/organic_tea_collection_product.png"],
       ecoScore: "98%",
       badges: ["Fair Trade"]
     },
@@ -199,7 +199,7 @@ export default function HomePage() {
       name: "Reusable Food Wraps",
       price: "₹899",
       originalPrice: "₹1,199",
-      images: ["/hero1.png", "/hero1.png", "/hero1.png"],
+      images: ["/products/beeswax_food_wraps_product.png", "/products/beeswax_food_wraps_product.png", "/products/beeswax_food_wraps_product.png"],
       ecoScore: "95%",
       badges: ["Beeswax"]
     },
@@ -208,7 +208,7 @@ export default function HomePage() {
       name: "Solar Garden Lights",
       price: "₹1,499",
       originalPrice: "₹1,999",
-      images: ["/hero1.png", "/hero1.png", "/hero1.png"],
+      images: ["/products/solar_garden_lights_product.png", "/products/solar_garden_lights_product.png", "/products/solar_garden_lights_product.png"],
       ecoScore: "97%",
       badges: ["Solar Powered"]
     },
@@ -217,7 +217,7 @@ export default function HomePage() {
       name: "Cork Coasters Set",
       price: "₹599",
       originalPrice: "₹799",
-      images: ["/hero1.png", "/hero1.png", "/hero1.png"],
+      images: ["/products/cork_coasters_set_product.png", "/products/cork_coasters_set_product.png", "/products/cork_coasters_set_product.png"],
       ecoScore: "93%",
       badges: ["Cork"]
     },
@@ -226,7 +226,7 @@ export default function HomePage() {
       name: "Organic Cotton Towels",
       price: "₹1,199",
       originalPrice: "₹1,599",
-      images: ["/hero1.png", "/hero1.png", "/hero1.png"],
+      images: ["/products/organic_cotton_tote_bag.png", "/products/organic_cotton_tote_bag.png", "/products/organic_cotton_tote_bag.png"],
       ecoScore: "96%",
       badges: ["Organic"]
     },
@@ -235,7 +235,7 @@ export default function HomePage() {
       name: "Bamboo Straw Set",
       price: "₹299",
       originalPrice: "₹399",
-      images: ["/hero1.png", "/hero1.png", "/hero1.png"],
+      images: ["/products/bamboo_cutlery_set_product.png", "/products/bamboo_cutlery_set_product.png", "/products/bamboo_cutlery_set_product.png"],
       ecoScore: "98%",
       badges: ["Biodegradable"]
     },
@@ -244,7 +244,7 @@ export default function HomePage() {
       name: "Natural Loofah Sponge",
       price: "₹199",
       originalPrice: "₹299",
-      images: ["/hero1.png", "/hero1.png", "/hero1.png"],
+      images: ["/products/natural_moisturizer_cream.png", "/products/natural_moisturizer_cream.png", "/products/natural_moisturizer_cream.png"],
       ecoScore: "100%",
       badges: ["Natural"]
     },
@@ -253,7 +253,7 @@ export default function HomePage() {
       name: "Eco Laundry Detergent",
       price: "₹899",
       originalPrice: "₹1,199",
-      images: ["/hero1.png", "/hero1.png", "/hero1.png"],
+      images: ["/products/sustainable_kitchen_set.png", "/products/sustainable_kitchen_set.png", "/products/sustainable_kitchen_set.png"],
       ecoScore: "94%",
       badges: ["Plant-Based"]
     },
@@ -262,7 +262,7 @@ export default function HomePage() {
       name: "Recycled Paper Notebook",
       price: "₹399",
       originalPrice: "₹599",
-      images: ["/hero1.png", "/hero1.png", "/hero1.png"],
+      images: ["/products/recycled_paper_notebook.png", "/products/recycled_paper_notebook.png", "/products/recycled_paper_notebook.png"],
       ecoScore: "92%",
       badges: ["Recycled"]
     },
@@ -271,7 +271,7 @@ export default function HomePage() {
       name: "Organic Herbal Tea",
       price: "₹599",
       originalPrice: "₹799",
-      images: ["/hero1.png", "/hero1.png", "/hero1.png"],
+      images: ["/products/organic_tea_collection_product.png", "/products/organic_tea_collection_product.png", "/products/organic_tea_collection_product.png"],
       ecoScore: "97%",
       badges: ["Organic"]
     },
@@ -280,7 +280,7 @@ export default function HomePage() {
       name: "Bamboo Toothbrush",
       price: "₹199",
       originalPrice: "₹299",
-      images: ["/hero1.png", "/hero1.png", "/hero1.png"],
+      images: ["/products/bamboo_toothbrush_set.png", "/products/bamboo_toothbrush_set.png", "/products/bamboo_toothbrush_set.png"],
       ecoScore: "99%",
       badges: ["Biodegradable"]
     },
@@ -289,7 +289,7 @@ export default function HomePage() {
       name: "Natural Soap Bar",
       price: "₹149",
       originalPrice: "₹199",
-      images: ["/hero1.png", "/hero1.png", "/hero1.png"],
+      images: ["/products/natural_moisturizer_cream.png", "/products/natural_moisturizer_cream.png", "/products/natural_moisturizer_cream.png"],
       ecoScore: "95%",
       badges: ["Handmade"]
     },
@@ -298,7 +298,7 @@ export default function HomePage() {
       name: "Cork Yoga Block",
       price: "₹1,299",
       originalPrice: "₹1,599",
-      images: ["/hero1.png", "/hero1.png", "/hero1.png"],
+      images: ["/products/cork_phone_case.png", "/products/cork_phone_case.png", "/products/cork_phone_case.png"],
       ecoScore: "93%",
       badges: ["Cork"]
     },
@@ -307,7 +307,7 @@ export default function HomePage() {
       name: "Organic Face Oil",
       price: "₹799",
       originalPrice: "₹999",
-      images: ["/hero1.png", "/hero1.png", "/hero1.png"],
+      images: ["/products/organic_skincare_set.png", "/products/organic_skincare_set.png", "/products/organic_skincare_set.png"],
       ecoScore: "96%",
       badges: ["Organic"]
     },
@@ -316,7 +316,7 @@ export default function HomePage() {
       name: "Bamboo Utensil Set",
       price: "₹699",
       originalPrice: "₹899",
-      images: ["/hero1.png", "/hero1.png", "/hero1.png"],
+      images: ["/products/wooden_kitchen_utensils.png", "/products/wooden_kitchen_utensils.png", "/products/wooden_kitchen_utensils.png"],
       ecoScore: "97%",
       badges: ["Bamboo"]
     },
@@ -325,7 +325,7 @@ export default function HomePage() {
       name: "Natural Beeswax Candles",
       price: "₹1,499",
       originalPrice: "₹1,999",
-      images: ["/hero1.png", "/hero1.png", "/hero1.png"],
+      images: ["/products/beeswax_food_wraps_product.png", "/products/beeswax_food_wraps_product.png", "/products/beeswax_food_wraps_product.png"],
       ecoScore: "98%",
       badges: ["Beeswax"]
     },
@@ -334,7 +334,7 @@ export default function HomePage() {
       name: "Organic Cotton Socks",
       price: "₹399",
       originalPrice: "₹599",
-      images: ["/hero1.png", "/hero1.png", "/hero1.png"],
+      images: ["/products/organic_cotton_t-shirt.png", "/products/organic_cotton_t-shirt.png", "/products/organic_cotton_t-shirt.png"],
       ecoScore: "94%",
       badges: ["Organic"]
     },
@@ -343,7 +343,7 @@ export default function HomePage() {
       name: "Recycled Glass Vase",
       price: "₹899",
       originalPrice: "₹1,199",
-      images: ["/hero1.png", "/hero1.png", "/hero1.png"],
+      images: ["/products/recycled_glass_jars.png", "/products/recycled_glass_jars.png", "/products/recycled_glass_jars.png"],
       ecoScore: "91%",
       badges: ["Recycled"]
     },
@@ -352,7 +352,7 @@ export default function HomePage() {
       name: "Natural Deodorant",
       price: "₹349",
       originalPrice: "₹499",
-      images: ["/hero1.png", "/hero1.png", "/hero1.png"],
+      images: ["/products/natural_moisturizer_cream.png", "/products/natural_moisturizer_cream.png", "/products/natural_moisturizer_cream.png"],
       ecoScore: "96%",
       badges: ["Natural"]
     },
@@ -361,7 +361,7 @@ export default function HomePage() {
       name: "Bamboo Cutting Board",
       price: "₹1,199",
       originalPrice: "₹1,599",
-      images: ["/hero1.png", "/hero1.png", "/hero1.png"],
+      images: ["/products/bamboo_dinnerware_set.png", "/products/bamboo_dinnerware_set.png", "/products/bamboo_dinnerware_set.png"],
       ecoScore: "95%",
       badges: ["Bamboo"]
     }
