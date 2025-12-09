@@ -119,7 +119,7 @@ export default function CommunityPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 to-blue-50">
+    <div className="min-h-screen bg-gradient-to-br from-emerald-50 to-blue-50 pt-12">
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-r from-emerald-600 to-blue-600 text-white overflow-hidden">
         <div className="absolute inset-0 bg-black/20"></div>

@@ -142,7 +142,7 @@ export default function AboutPage() {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50 font-inter">
+    <div className="min-h-screen bg-gray-50 font-inter pt-12">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-emerald-50 to-emerald-200 py-20 md:py-32">
         <div className="container mx-auto px-4 text-center">

@@ -24,7 +24,7 @@ const ChevronDownIcon = () => (
   </svg>
 );
 
-export default function ExploreHeader({ sortBy, onSortChange, onToggleFilters, resultsCount }) {
+export default function ExploreHeader({ sortBy, onSortChange, onToggleFilters, searchBar }) {
   const sortOptions = [
     { value: "latest", label: "Latest" },
     { value: "price_low_high", label: "Price: Low to High" },
@@ -34,11 +34,11 @@ export default function ExploreHeader({ sortBy, onSortChange, onToggleFilters, r
   ];
 
   return (
-    <div className="border-b border-gray-200 px-4 py-3 mx-4 my-4"> {/* Reduced padding */}
-      <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between"> {/* Reduced gap */}
+    <div className="px-4 py-2">
+      <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
         
-        {/* Filter Button - Mobile and Tablet */}
-        <div className="flex items-center gap-4">
+        {/* Filter Button - Left Side */}
+        <div className="flex items-center flex-shrink-0">
           <button
             onClick={onToggleFilters}
             className="lg:hidden bg-[#272727] hover:bg-[#1a1a1a] text-white px-6 py-2.5 rounded-full font-poppins font-semibold text-[14px] flex items-center gap-2 transition-colors"
@@ -47,18 +47,22 @@ export default function ExploreHeader({ sortBy, onSortChange, onToggleFilters, r
             <FilterIcon />
           </button>
 
-          {/* Desktop Filter Button */}
           <button
             onClick={onToggleFilters}
-            className="hidden lg:flex bg-[#272727] hover:bg-[#1a1a1a] text-white px-8 py-3.5 rounded-full font-poppins font-semibold text-[14px] items-center gap-3 transition-colors"
+            className="hidden lg:flex bg-[#272727] hover:bg-[#1a1a1a] text-white px-6 py-2.5 rounded-full font-poppins font-semibold text-[14px] items-center gap-2 transition-colors"
           >
             <span>Filter</span>
             <FilterIcon />
           </button>
         </div>
 
-        {/* Sort By Dropdown */}
-        <div className="flex items-center gap-2">
+        {/* Search Bar - Center */}
+        <div className="flex-1 max-w-2xl mx-4">
+          {searchBar}
+        </div>
+
+        {/* Sort By Dropdown - Right Side */}
+        <div className="flex items-center gap-2 flex-shrink-0">
           <span className="font-poppins text-[14px] text-gray-600">Sort by:</span>
           <div className="relative">
             <select
@@ -76,15 +80,6 @@ export default function ExploreHeader({ sortBy, onSortChange, onToggleFilters, r
               <ChevronDownIcon />
             </div>
           </div>
-        </div>
-
-        {/* Results Count */}
-        <div className="text-right">
-          <span className="font-poppins text-[16px]">
-            <span className="font-semibold text-[#1a1a1a]">{resultsCount}</span>
-            <span className="text-[#1a1a1a]"> </span>
-            <span className="text-[#666666]">Results Found</span>
-          </span>
         </div>
       </div>
     </div>

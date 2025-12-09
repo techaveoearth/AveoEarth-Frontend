@@ -2,8 +2,6 @@
 
 import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
-import Navbar from "../../components/layout/Navbar";
-import Footer from "../../components/layout/Footer";
 import ExploreFilters from "../../components/explore/ExploreFilters";
 import ExploreHeader from "../../components/explore/ExploreHeader";
 import ExploreProductGrid from "../../components/explore/ExploreProductGrid";
@@ -17,11 +15,9 @@ import { productsBuyer, productSearch } from "../../lib/api";
 function ExplorePageFallback() {
   return (
     <div className="min-h-screen bg-gray-50">
-      <Navbar />
       <div className="flex justify-center items-center h-64">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-600"></div>
       </div>
-      <Footer />
     </div>
   );
 }
@@ -270,14 +266,11 @@ function ExplorePageContent() {
 
   return (
     <div className="min-h-screen">
-      {/* Navigation */}
-      <Navbar />
-      
       {/* Main Content Wrapper */}
       <div className="relative">
         {/* Fixed Sidebar Filters - Only visible until footer starts */}
-        <div className="hidden lg:block fixed left-0 top-[76px] w-80 bg-white border-r border-gray-200 z-10 overflow-hidden" 
-             style={{ height: 'calc(100vh - 76px)' }}>
+        <div className="hidden lg:block fixed left-0 top-[120px] w-80 bg-white border-r border-gray-200 z-10 overflow-hidden" 
+             style={{ height: 'calc(100vh - 120px)' }}>
           <div className="h-full overflow-y-auto scrollbar-hide pb-4">
             <ExploreFilters 
               activeFilters={activeFilters}
@@ -300,26 +293,22 @@ function ExplorePageContent() {
 
         {/* Main Content */}
         <div className="lg:ml-80 relative z-0">
-          <div className="pt-[12px]"> 
-            {/* Header Section with Filter Button and Sort */}
+          <div className="pt-12"> 
+            {/* Header Section with Filter, Search Bar, and Sort in one row */}
             <ExploreHeader 
               sortBy={`${sortBy}_${sortOrder}`}
               onSortChange={handleSortChange}
               onToggleFilters={() => setShowFilters(!showFilters)}
-              resultsCount={totalResults}
-              loading={loading}
+              searchBar={
+                <SearchBar
+                  placeholder="Search for sustainable products..."
+                  onSearch={handleSearch}
+                  onSuggestionSelect={handleSuggestionSelect}
+                  value={activeFilters.search}
+                  className="w-full"
+                />
+              }
             />
-
-            {/* Search Bar Section */}
-            <div className="px-4 pb-6">
-              <SearchBar
-                placeholder="Search for sustainable products..."
-                onSearch={handleSearch}
-                onSuggestionSelect={handleSuggestionSelect}
-                value={activeFilters.search}
-                className="max-w-2xl mx-auto"
-              />
-            </div>
 
             {/* Product Grid */}
             <div className="px-4 pt-0 pb-4">
@@ -391,9 +380,6 @@ function ExplorePageContent() {
 
             {/* Newsletter Subscription */}
             <NewsletterSubscription />
-            
-            {/* Footer */}
-            <Footer />
           </div>
         </div>
       </div>

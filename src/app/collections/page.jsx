@@ -2,7 +2,7 @@ export const metadata = { title: "Collections" };
 
 export default function CollectionsPage() {
   return (
-    <div className="container mx-auto px-4 py-10">
+    <div className="container mx-auto px-4 py-10 pt-12">
       <h1 className="text-3xl font-semibold mb-3">Curated Collections</h1>
       <p className="text-neutral-600 mb-8">Discover themed bundles designed for lower environmental impact.</p>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
