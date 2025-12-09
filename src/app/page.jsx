@@ -473,7 +473,7 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-r from-white/60 via-white/40 to-transparent" />
         </div>
         
-        <div className="relative z-10 container mx-auto px-6 lg:px-10 pt-20 pb-16">
+        <div className="relative z-10 container mx-auto px-6 lg:px-10 pt-14 pb-16">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left Side - Hero Content */}
             <div className="space-y-6 slide-up text-center lg:text-left">
