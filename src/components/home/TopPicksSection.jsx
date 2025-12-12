@@ -198,8 +198,8 @@ function ProductTile3D({ product, index, isActive, compact = false }) {
     setIsHovered(false);
   };
 
-  const imageHeight = compact ? "h-24" : "h-48";
-  const padding = compact ? "p-2" : "p-4";
+  const imageHeight = compact ? "h-24 sm:h-28 md:h-32 lg:h-36" : "h-56";
+  const padding = compact ? "p-2 sm:p-3" : "p-4";
 
   return (
     <motion.div
@@ -352,7 +352,7 @@ export default function TopPicksSection({ compact = false }) {
   if (compact) {
     return (
       <div 
-        className="relative bg-white/80 backdrop-blur-sm rounded-2xl p-4 shadow-xl border border-white/50"
+        className="relative bg-white/80 backdrop-blur-sm rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-5 shadow-xl border border-white/50"
         onMouseEnter={() => setIsHoveringSection(true)}
         onMouseLeave={() => setIsHoveringSection(false)}
       >
@@ -386,8 +386,8 @@ export default function TopPicksSection({ compact = false }) {
             <ChevronRight className="w-4 h-4 text-gray-600" />
           </button>
 
-          <div className="px-4">
-            <div className="grid grid-cols-4 gap-2">
+          <div className="px-1 sm:px-2">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-3">
               {getCurrentProducts().map((product, index) => (
                 <ProductTile3D
                   key={`${currentSet}-${product.id}`}
