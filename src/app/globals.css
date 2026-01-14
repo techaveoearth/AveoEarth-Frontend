@@ -401,3 +401,315 @@ body {
     transform: scale(0.98);
   }
 }
+
+/* ==========================================
+   PWA MOBILE OPTIMIZATIONS
+   ========================================== */
+
+/* Mobile-First Container */
+@media (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
+  
+  body {
+    padding-top: 56px !important;
+    overflow-x: hidden;
+  }
+  
+  .container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
+/* PWA Standalone Mode Styles */
+@media (display-mode: standalone) {
+  body {
+    padding-top: calc(56px + env(safe-area-inset-top)) !important;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  .mobile-navbar {
+    padding-top: env(safe-area-inset-top);
+  }
+}
+
+/* Mobile Animations */
+@keyframes mobile-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes mobile-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes mobile-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes mobile-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes swipe-hint {
+  0%, 100% { transform: translateX(0); opacity: 0.6; }
+  50% { transform: translateX(10px); opacity: 1; }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.mobile-slide-up {
+  animation: mobile-slide-up 0.4s ease-out forwards;
+}
+
+.mobile-fade-in {
+  animation: mobile-fade-in 0.3s ease-out forwards;
+}
+
+.mobile-scale-in {
+  animation: mobile-scale-in 0.3s ease-out forwards;
+}
+
+.mobile-bounce {
+  animation: mobile-bounce 2s ease-in-out infinite;
+}
+
+.swipe-hint {
+  animation: swipe-hint 1.5s ease-in-out infinite;
+}
+
+/* Mobile Swipeable Cards */
+.mobile-scroll-snap {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.mobile-scroll-snap::-webkit-scrollbar {
+  display: none;
+}
+
+.mobile-scroll-snap > * {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
+
+/* Mobile Card Styles */
+.mobile-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  will-change: transform;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mobile-card:active {
+  transform: scale(0.97);
+}
+
+/* Mobile Category Pills */
+.mobile-category-pill {
+  white-space: nowrap;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mobile-category-pill:active {
+  transform: scale(0.95);
+}
+
+/* Mobile Product Grid */
+@media (max-width: 640px) {
+  .mobile-product-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  
+  .mobile-product-card {
+    border-radius: 12px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+}
+
+/* Mobile Hero Optimizations */
+@media (max-width: 640px) {
+  .mobile-hero {
+    min-height: 70vh;
+    padding-top: 24px;
+  }
+  
+  .mobile-hero-title {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+  
+  .mobile-hero-tagline {
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile Bottom Sheet Animation */
+@keyframes slide-up-sheet {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.mobile-bottom-sheet {
+  animation: slide-up-sheet 0.3s ease-out forwards;
+  border-radius: 20px 20px 0 0;
+}
+
+/* Mobile Navbar Compact */
+@media (max-width: 640px) {
+  .mobile-navbar-compact {
+    height: 56px;
+    padding: 0 12px;
+  }
+  
+  .mobile-navbar-logo {
+    height: 28px;
+    width: auto;
+  }
+  
+  .mobile-search-bar {
+    height: 36px;
+    border-radius: 18px;
+    font-size: 14px;
+  }
+}
+
+/* Mobile Ticker Compact */
+@media (max-width: 640px) {
+  .mobile-ticker {
+    height: 44px;
+    padding: 4px 0;
+  }
+  
+  .mobile-ticker-item {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .mobile-ticker-text {
+    font-size: 6px;
+  }
+}
+
+/* Mobile Categories Horizontal Scroll */
+@media (max-width: 640px) {
+  .mobile-categories-scroll {
+    display: flex;
+    overflow-x: auto;
+    gap: 8px;
+    padding: 12px 16px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .mobile-categories-scroll::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .mobile-category-item {
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    width: 72px;
+    text-align: center;
+  }
+  
+  .mobile-category-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 16px;
+    margin: 0 auto 4px;
+  }
+  
+  .mobile-category-name {
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+}
+
+/* Mobile Floating Action Button */
+.mobile-fab {
+  position: fixed;
+  bottom: calc(80px + env(safe-area-inset-bottom));
+  right: 16px;
+  width: 56px;
+  height: 56px;
+  border-radius: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(107, 142, 35, 0.3);
+  z-index: 40;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mobile-fab:active {
+  transform: scale(0.9);
+}
+
+/* Mobile Skeleton Loading */
+.mobile-skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* iOS Rubber Band Scroll Fix */
+@supports (-webkit-touch-callout: none) {
+  body {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Prevent Pull-to-Refresh in PWA */
+@media (display-mode: standalone) {
+  html {
+    overscroll-behavior-y: contain;
+  }
+}
+
+/* Hide scrollbars on mobile but keep functionality */
+@media (max-width: 640px) {
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}

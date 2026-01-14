@@ -100,25 +100,20 @@ function CategoryNavigation() {
 
   return (
     <div className="w-full bg-gradient-to-r from-gray-50 via-white to-gray-50 border-y border-gray-100 shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-center py-4 overflow-x-auto scrollbar-hide">
-          <div className="flex items-center gap-2 sm:gap-3 md:gap-4 lg:gap-6">
+      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+        <div className="flex items-center py-3 sm:py-4 overflow-x-auto mobile-scroll-snap scrollbar-hide">
+          <div className="flex items-center gap-1.5 sm:gap-3 md:gap-4 lg:gap-6 px-1 sm:mx-auto">
             {categories.map((category, index) => (
               <Link 
                 key={category.name}
                 href={category.href} 
-                className={`group flex flex-col items-center gap-2 px-3 py-2 sm:px-4 sm:py-3 rounded-2xl transition-all duration-300 ${category.hoverBg} hover:shadow-lg hover:scale-105 min-w-max`}
+                className={`group flex flex-col items-center gap-1 sm:gap-2 px-2 py-1.5 sm:px-4 sm:py-3 rounded-xl sm:rounded-2xl transition-all duration-300 ${category.hoverBg} hover:shadow-lg active:scale-95 sm:hover:scale-105 min-w-max flex-shrink-0`}
               >
-                <div className={`relative w-12 h-12 sm:w-14 sm:h-14 ${category.iconBg} rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110`}>
-                  <div className="absolute inset-0 rounded-2xl bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  {category.icon}
-                  <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-white rounded-full flex items-center justify-center shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <svg width="8" height="8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M9 5l7 7-7 7" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className={`text-olive-600`}/>
-                    </svg>
-                  </div>
+                <div className={`relative w-10 h-10 sm:w-14 sm:h-14 ${category.iconBg} rounded-xl sm:rounded-2xl flex items-center justify-center shadow-md sm:shadow-lg group-hover:shadow-xl transition-all duration-300 sm:group-hover:scale-110`}>
+                  <div className="absolute inset-0 rounded-xl sm:rounded-2xl bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="scale-75 sm:scale-100">{category.icon}</div>
                 </div>
-                <span className="text-xs sm:text-sm font-semibold text-gray-700 group-hover:text-gray-900 transition-colors duration-300 text-center leading-tight">
+                <span className="text-[10px] sm:text-sm font-semibold text-gray-700 group-hover:text-gray-900 transition-colors duration-300 text-center leading-tight whitespace-nowrap">
                   {category.name}
                 </span>
               </Link>
@@ -459,33 +454,33 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-white relative overflow-hidden">
 
-      {/* Hero Section - Similar to HeroSection.tsx */}
-      <section className="relative min-h-[85vh] bg-gradient-to-br from-olive-50 to-olive-100 overflow-hidden flex items-center justify-center">
+      {/* Hero Section - Mobile Optimized */}
+      <section className="relative min-h-[70vh] sm:min-h-[85vh] bg-gradient-to-br from-olive-50 to-olive-100 overflow-hidden flex items-center justify-center">
         {/* Parallax Background */}
         <div className="absolute inset-0 parallax-layer">
           <Image
             src="/hero-sustainability-new.png"
             alt="Sustainable lifestyle products"
             fill
-            className="object-cover opacity-70"
+            className="object-cover opacity-60 sm:opacity-70"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-white/60 via-white/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b sm:bg-gradient-to-r from-white/80 via-white/50 to-transparent" />
         </div>
         
-        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-10 pt-28 sm:pt-24 md:pt-24 lg:pt-20 xl:pt-16 pb-16">
-          <div className="grid grid-cols-1 xl:grid-cols-[40%_60%] gap-6 xl:gap-8 items-center">
+        <div className="relative z-10 container mx-auto px-3 sm:px-6 lg:px-10 pt-16 sm:pt-24 md:pt-24 lg:pt-20 xl:pt-16 pb-8 sm:pb-16">
+          <div className="grid grid-cols-1 xl:grid-cols-[40%_60%] gap-4 sm:gap-6 xl:gap-8 items-center">
             {/* Left Side - Hero Content */}
-            <div className="space-y-6 slide-up text-center lg:text-left">
-              <div className="space-y-4">
-                <h1 className="text-4xl lg:text-6xl font-bold text-gray-800 leading-tight">
+            <div className="space-y-4 sm:space-y-6 mobile-slide-up text-center lg:text-left">
+              <div className="space-y-2 sm:space-y-4">
+                <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-gray-800 leading-tight">
                   Sustainability
                   <span className="text-olive-600 block" style={{ color: '#6b8e23' }}>Simplified</span>
                 </h1>
                 
-                <div className="h-12 flex items-center justify-center lg:justify-start">
+                <div className="h-10 sm:h-12 flex items-center justify-center lg:justify-start">
                   <p
-                    className={`text-lg lg:text-xl text-gray-600 transition-all duration-300 ${
+                    className={`text-sm sm:text-lg lg:text-xl text-gray-600 transition-all duration-300 max-w-[280px] sm:max-w-none ${
                       isTaglineVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                     }`}
                   >
@@ -494,31 +489,31 @@ export default function HomePage() {
                 </div>
               </div>
               
-              <div className="flex flex-col gap-2 justify-center lg:justify-start items-center lg:items-start">
+              <div className="flex flex-row sm:flex-col gap-2 justify-center lg:justify-start items-center lg:items-start">
                 <Button
                   as={Link}
                   href="/explore"
                   variant="primary"
                   size="sm"
-                  className="rounded-full gap-2 group hover:scale-105 transition-transform text-sm px-5 py-2"
+                  className="rounded-full gap-2 group hover:scale-105 active:scale-95 transition-transform text-xs sm:text-sm px-4 sm:px-5 py-2"
                 >
-                  Shop Collections
-                  <ShoppingCart className="ml-1 w-4 h-4" />
+                  Shop Now
+                  <ShoppingCart className="ml-1 w-3 h-3 sm:w-4 sm:h-4" />
                 </Button>
                 <Button
                   as={Link}
                   href="/about"
                   variant="outline"
                   size="sm"
-                  className="rounded-full text-sm px-5 py-2"
+                  className="rounded-full text-xs sm:text-sm px-4 sm:px-5 py-2 active:scale-95 transition-transform"
                 >
-                  Become a Partner
+                  Partner
                 </Button>
               </div>
             </div>
             
             {/* Right Side - Top Picks */}
-            <div className="slide-up mt-6 xl:mt-0">
+            <div className="mobile-fade-in mt-2 sm:mt-6 xl:mt-0">
               <TopPicksSection compact={true} />
             </div>
           </div>
@@ -526,11 +521,11 @@ export default function HomePage() {
       </section>
 
       {/* Top Categories Section - Hover Bubbles with animations */}
-      <section className="py-8 sm:py-10 bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-800 mb-3">Explore Our <span className="text-olive-700">Categories</span></h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">Curated collections for a sustainable lifestyle. Hover to see featured products.</p>
+      <section className="py-6 sm:py-8 md:py-10 bg-gray-50">
+        <div className="container mx-auto px-3 sm:px-6 lg:px-8">
+          <div className="text-center mb-4 sm:mb-8">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-gray-800 mb-2 sm:mb-3">Explore Our <span className="text-olive-700">Categories</span></h2>
+            <p className="text-sm sm:text-lg text-gray-600 max-w-2xl mx-auto px-2">Curated collections for a sustainable lifestyle.</p>
           </div>
           <style>{`@keyframes bubble-emerge{from{opacity:0;transform:scale(0.8) translateY(10px)}to{opacity:1;transform:scale(1) translateY(0)}}.bubble-emerge{animation:bubble-emerge 300ms cubic-bezier(0.175,0.885,0.32,1.275) forwards;opacity:0}`}</style>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">

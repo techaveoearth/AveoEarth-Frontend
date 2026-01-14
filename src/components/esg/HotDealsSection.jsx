@@ -227,6 +227,8 @@ export default function HotDealsSection() {
       className="relative w-full py-4 sm:py-6 overflow-hidden"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onTouchStart={() => setIsHovered(true)}
+      onTouchEnd={() => setTimeout(() => setIsHovered(false), 3000)}
     >
       <style jsx global>{`
         @keyframes float-3d {
@@ -292,8 +294,8 @@ export default function HotDealsSection() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
           <div className="text-center sm:text-left">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900">
-              Hot <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6b8e23] via-[#8b7355] to-[#4682b4]">Deals</span>
+            <h2 className="font-reem font-bold text-3xl sm:text-4xl lg:text-5xl leading-[1.2]">
+              <span className="text-[#52494a]">Hot</span> <span className="text-[#6b8e23]">Deals</span>
             </h2>
           </div>
 
@@ -301,14 +303,14 @@ export default function HotDealsSection() {
             <div className="relative" ref={dropdownRef}>
             <button
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-              className="flex items-center gap-3 bg-white/90 backdrop-blur-sm px-5 py-3 rounded-xl shadow-lg border border-[#6b8e23]/20 hover:border-[#6b8e23]/40 transition-all duration-300 min-w-[200px]"
+              className="flex items-center gap-2 sm:gap-3 bg-white/90 backdrop-blur-sm px-3 sm:px-5 py-2 sm:py-3 rounded-xl shadow-lg border border-[#6b8e23]/20 hover:border-[#6b8e23]/40 transition-all duration-300 min-w-[140px] sm:min-w-[200px] active:scale-95"
             >
-              <span className="text-lg">{getCategoryIcon(activeFilter)}</span>
-              <span className="font-medium text-gray-700 flex-1 text-left">
-                {activeFilter === 'all' ? 'All Categories' : activeFilter}
+              <span className="text-base sm:text-lg">{getCategoryIcon(activeFilter)}</span>
+              <span className="font-medium text-gray-700 flex-1 text-left text-xs sm:text-sm truncate">
+                {activeFilter === 'all' ? 'All' : activeFilter}
               </span>
               <svg 
-                className={`w-5 h-5 text-[#6b8e23] transition-transform duration-300 ${isDropdownOpen ? 'rotate-180' : ''}`} 
+                className={`w-4 h-4 sm:w-5 sm:h-5 text-[#6b8e23] transition-transform duration-300 flex-shrink-0 ${isDropdownOpen ? 'rotate-180' : ''}`} 
                 fill="none" 
                 stroke="currentColor" 
                 viewBox="0 0 24 24"
@@ -318,21 +320,21 @@ export default function HotDealsSection() {
             </button>
 
             {isDropdownOpen && (
-              <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-xl shadow-2xl border border-[#6b8e23]/20 overflow-hidden z-50">
+              <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-xl shadow-2xl border border-[#6b8e23]/20 overflow-hidden z-50 max-h-[60vh] overflow-y-auto">
                 {categories.map((category) => (
                   <button
                     key={category}
                     onClick={() => handleFilterChange(category)}
-                    className={`w-full flex items-center gap-3 px-5 py-3 text-left transition-all duration-200 ${
+                    className={`w-full flex items-center gap-2 sm:gap-3 px-3 sm:px-5 py-2.5 sm:py-3 text-left transition-all duration-200 active:bg-[#6b8e23]/20 ${
                       activeFilter === category 
                         ? 'bg-gradient-to-r from-[#6b8e23]/20 to-[#8b7355]/10 text-[#556b2f] font-semibold' 
                         : 'hover:bg-[#6b8e23]/10 text-gray-700'
                     }`}
                   >
-                    <span className="text-lg">{getCategoryIcon(category)}</span>
-                    <span>{category === 'all' ? 'All Categories' : category}</span>
+                    <span className="text-base sm:text-lg">{getCategoryIcon(category)}</span>
+                    <span className="text-xs sm:text-sm truncate">{category === 'all' ? 'All Categories' : category}</span>
                     {activeFilter === category && (
-                      <svg className="w-5 h-5 ml-auto text-[#6b8e23]" fill="currentColor" viewBox="0 0 20 20">
+                      <svg className="w-4 h-4 sm:w-5 sm:h-5 ml-auto text-[#6b8e23] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                       </svg>
                     )}
@@ -342,10 +344,6 @@ export default function HotDealsSection() {
             )}
             </div>
 
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#6b8e23]/20 to-[#8b7355]/20 px-4 py-2 rounded-full">
-              <span className="text-xl">🔥</span>
-              <span className="text-[#556b2f] font-semibold text-sm uppercase tracking-wider">Limited Time</span>
-            </div>
           </div>
         </div>
 

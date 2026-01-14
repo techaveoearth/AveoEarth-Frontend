@@ -2,8 +2,10 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { useAuth } from "@/hooks/useAuth";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
+
+const ADMIN_EMAIL = "admin@aveoearth.com";
+const ADMIN_PASSWORD = "Admin@123";
 
 export default function AdminLogin() {
   const [formData, setFormData] = useState({
@@ -14,14 +16,15 @@ export default function AdminLogin() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   
-  const { login, user } = useAuth();
   const router = useRouter();
 
   useEffect(() => {
-    if (user && user.user_role === "admin") {
+    // Check if already authenticated
+    const adminToken = localStorage.getItem("adminToken");
+    if (adminToken) {
       router.push("/admin/dashboard");
     }
-  }, [user, router]);
+  }, [router]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -29,10 +32,24 @@ export default function AdminLogin() {
     setError("");
 
     try {
-      await login(formData.email, formData.password);
-      // Redirect will happen in useEffect
+      // Simple authentication check
+      if (formData.email === ADMIN_EMAIL && formData.password === ADMIN_PASSWORD) {
+        // Create a mock token and store it
+        const mockToken = "admin_token_" + Date.now();
+        localStorage.setItem("adminToken", mockToken);
+        localStorage.setItem("adminUser", JSON.stringify({
+          email: ADMIN_EMAIL,
+          user_role: "admin",
+          name: "Admin"
+        }));
+        
+        // Redirect to dashboard
+        router.push("/admin/dashboard");
+      } else {
+        setError("Invalid email or password.");
+      }
     } catch (err) {
-      setError(err.message || "Login failed. Please check your credentials.");
+      setError(err.message || "Login failed.");
     } finally {
       setLoading(false);
     }
