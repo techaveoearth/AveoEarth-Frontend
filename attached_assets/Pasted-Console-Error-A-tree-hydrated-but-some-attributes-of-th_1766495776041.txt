@@ -1,0 +1,71 @@
+Console Error
+
+A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+See more info here: https://nextjs.org/docs/messages/react-hydration-error
+
+
+  ...
+    <HotReload assetPrefix="" globalError={[...]}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/admin/login" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.js">
+                      <SegmentTrieNode>
+                      <link>
+                      <RootLayout>
+                        <html lang="en">
+                          <head>
+                            <meta>
+                            <meta>
+                            <meta>
+                            <meta>
+                            <meta>
+                            <link>
+                            <ServiceWorkerRegistration>
+                              <script
+                                dangerouslySetInnerHTML={{
++                                 __html: "\n          if ('serviceWorker' in navigator) {\n            window.addEven..."
+-                                 __html: ""
+                                }}
+-                               src="/__replco/static/devtools/injected.js"
+-                               onerror={"parent.postMessage({event:'error',payload:'script.onerror: Failed to load '..."}
+                              >
+                          ...
+                  ...
+src/app/layout.js (85:5) @ ServiceWorkerRegistration
+
+
+  83 | function ServiceWorkerRegistration() {
+  84 |   return (
+> 85 |     <script
+     |     ^
+  86 |       dangerouslySetInnerHTML={{
+  87 |         __html: `
+  88 |           if ('serviceWorker' in navigator) {
+Call Stack
+20
+
+Show 17 ignore-listed frame(s)
+script
+<anonymous>
+ServiceWorkerRegistration
+src/app/layout.js (85:5)
+RootLayout
+src/app/layout.js (113:9)
+1
+2

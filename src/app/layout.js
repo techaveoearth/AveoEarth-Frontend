@@ -9,6 +9,7 @@ import { CartProvider } from "../hooks/useCart";
 import { OrdersProvider } from "../hooks/useOrders";
 import { ChatBotProvider } from "../context/ChatBotContext";
 import FloatingChatBot from "../components/ai/FloatingChatBot";
+import ServiceWorkerRegistration from "../components/ServiceWorkerRegistration";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -52,13 +53,48 @@ const poppins = Poppins({
 export const metadata = {
   title: "AveoEarth - Sustainable E-commerce Marketplace",
   description: "The world's largest sustainability-focused marketplace. Connecting eco-conscious consumers with verified sustainable vendors worldwide.",
+  manifest: "/manifest.json",
+  themeColor: "#6b8e23",
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+    userScalable: false,
+    viewportFit: "cover",
+  },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "AveoEarth",
+  },
+  formatDetection: {
+    telephone: false,
+  },
+  icons: {
+    icon: [
+      { url: "/icons/icon-192x192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icons/icon-512x512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [
+      { url: "/icons/icon-152x152.png", sizes: "152x152", type: "image/png" },
+    ],
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="AveoEarth" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="format-detection" content="telephone=no" />
+        <link rel="apple-touch-icon" href="/icons/icon-152x152.png" />
+        <ServiceWorkerRegistration />
+      </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${ebGaramond.variable} ${reemkufi.variable} ${poppins.variable} antialiased pt-[76px]`}
+        className={`${geistSans.variable} ${geistMono.variable} ${ebGaramond.variable} ${reemkufi.variable} ${poppins.variable} antialiased`}
         suppressHydrationWarning={true}
       >
         <AuthProvider>
@@ -66,7 +102,7 @@ export default function RootLayout({ children }) {
             <OrdersProvider>
               <ChatBotProvider>
                 <Navbar />
-                <main className="min-h-screen pb-[88px]">
+                <main className="min-h-screen">
                   {children}
                 </main>
                 <BottomNavigation />

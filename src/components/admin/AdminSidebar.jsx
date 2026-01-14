@@ -68,7 +68,7 @@ export default function AdminSidebar({ activeScreen, onScreenChange }) {
   };
 
   return (
-    <div className="fixed left-0 top-0 bottom-0 w-60 bg-white border-r border-gray-300 flex flex-col">
+    <div className="fixed left-0 top-[76px] bottom-0 w-60 bg-white border-r border-gray-300 flex flex-col">
       {/* Logo */}
       <div className="p-6 border-b border-gray-200">
         <div className="flex items-center gap-3">

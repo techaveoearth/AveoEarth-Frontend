@@ -16,12 +16,12 @@ import RotatingEarthIcon from "../ai/RotatingEarthIcon";
 const ArtisanTicker = dynamic(() => import("./ArtisanTicker"), { 
   ssr: false,
   loading: () => (
-    <div className="flex items-center justify-center w-full h-[80px] bg-gradient-to-r from-amber-50 via-stone-100 to-amber-50 border-b border-stone-200 overflow-hidden">
-      <div className="flex items-center gap-6 animate-pulse">
-        {[...Array(7)].map((_, i) => (
+    <div className="flex items-center justify-center w-full h-[48px] sm:h-[56px] bg-gradient-to-r from-amber-50 via-stone-100 to-amber-50 border-b border-stone-200 overflow-hidden">
+      <div className="flex items-center gap-3 sm:gap-6 animate-pulse">
+        {[...Array(5)].map((_, i) => (
           <div key={i} className="flex flex-col items-center">
-            <div className="w-[60px] h-[60px] rounded-md bg-stone-200/70" />
-            <div className="mt-1 w-12 h-2 bg-stone-200/70 rounded" />
+            <div className="w-[28px] h-[28px] sm:w-[36px] sm:h-[36px] rounded-md bg-stone-200/70" />
+            <div className="mt-0.5 w-8 sm:w-12 h-1.5 sm:h-2 bg-stone-200/70 rounded" />
           </div>
         ))}
       </div>
@@ -278,7 +278,7 @@ export default function Navbar() {
       {!isVendorDashboard && showTicker && <ArtisanTicker />}
 
       <div className="bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 h-12 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 h-11 sm:h-12 flex items-center justify-between">
           <div className="flex items-center gap-6">
             <Link href="/" className="flex items-center gap-1.5">
               <motion.div 
@@ -402,43 +402,98 @@ export default function Navbar() {
 
       <AnimatePresence>
         {isMobileMenuOpen && !isVendorDashboard && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-white border-b border-gray-100 shadow-lg overflow-hidden"
-          >
-            <div className="px-4 py-3 space-y-1">
-              <form onSubmit={handleSearchSubmit} className="mb-3">
-                <div className="flex items-center bg-white rounded-full px-3 py-2 border border-gray-200 shadow-sm">
-                  <SearchIcon />
-                  <input
-                    type="text"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="Search products..."
-                    className="ml-2 bg-transparent outline-none text-[11px] text-gray-700 placeholder-gray-400 w-full"
-                  />
-                </div>
-              </form>
-              {navItems.map((item, index) => (
-                <motion.div
-                  key={item.href}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.05 }}
-                >
-                  <Link 
-                    href={item.href}
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="lg:hidden fixed inset-0 bg-black/20 backdrop-blur-sm z-40"
+              onClick={() => setIsMobileMenuOpen(false)}
+            />
+            <motion.div
+              initial={{ opacity: 0, x: '100%' }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              className="lg:hidden fixed right-0 top-0 h-full w-[280px] bg-white shadow-2xl z-50 overflow-y-auto"
+            >
+              <div className="p-4">
+                <div className="flex items-center justify-between mb-6">
+                  <div className="flex items-center gap-2">
+                    <Image src="/logo.png" alt="AveoEarth" width={28} height={28} className="object-contain" />
+                    <span className="text-lg font-bold bg-gradient-to-r from-olive-600 to-olive-700 bg-clip-text text-transparent">
+                      AveoEarth
+                    </span>
+                  </div>
+                  <motion.button
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="block py-2 text-[12px] text-gray-700 hover:text-olive-600 font-medium transition-colors"
+                    className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600"
+                    whileTap={{ scale: 0.9 }}
                   >
-                    {item.label}
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+                    <CloseIcon />
+                  </motion.button>
+                </div>
+
+                <form onSubmit={handleSearchSubmit} className="mb-6">
+                  <div className="flex items-center bg-gray-50 rounded-xl px-4 py-3 border border-gray-200">
+                    <SearchIcon />
+                    <input
+                      type="text"
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      placeholder="Search eco-friendly products..."
+                      className="ml-3 bg-transparent outline-none text-sm text-gray-700 placeholder-gray-400 w-full"
+                    />
+                  </div>
+                </form>
+
+                <nav className="space-y-1">
+                  {navItems.map((item, index) => (
+                    <motion.div
+                      key={item.href}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.05 + 0.1 }}
+                    >
+                      <Link 
+                        href={item.href}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 hover:bg-olive-50 hover:text-olive-600 font-medium transition-all active:scale-[0.98]"
+                      >
+                        <span className="w-2 h-2 rounded-full bg-olive-400/50" />
+                        {item.label}
+                      </Link>
+                    </motion.div>
+                  ))}
+                </nav>
+
+                <div className="mt-8 pt-6 border-t border-gray-100">
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                  >
+                    <Link
+                      href="/signup"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="flex items-center justify-center w-full py-3 bg-gradient-to-r from-olive-500 to-olive-600 text-white font-semibold rounded-xl shadow-lg active:scale-[0.98] transition-transform"
+                    >
+                      Join Community
+                    </Link>
+                  </motion.div>
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.4 }}
+                    className="text-center text-xs text-gray-400 mt-4"
+                  >
+                    Sustainable shopping, simplified
+                  </motion.p>
+                </div>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </div>

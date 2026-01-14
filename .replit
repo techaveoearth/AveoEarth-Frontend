@@ -1,9 +1,10 @@
-modules = ["nodejs-20", "web"]
+modules = ["nodejs-20", "web", "python-3.11"]
 [agent]
 expertMode = true
 
 [nix]
 channel = "stable-25_05"
+packages = ["glibcLocales"]
 
 [workflows]
 runButton = "Project"
@@ -37,3 +38,8 @@ externalPort = 80
 deploymentTarget = "autoscale"
 run = ["npm", "start"]
 build = ["npm", "run", "build"]
+
+[userenv]
+
+[userenv.shared]
+NEXT_PUBLIC_API_BASE = "https://aveo-earth-backend.onrender.com/"

@@ -123,6 +123,30 @@ The website uses a cohesive earthy color palette representing sustainability and
 - Added connection status indicators and clear chat functionality
 - Configured for Replit environment
 - Updated dev server to run on port 5000
+
+## PWA Mobile Optimization (Dec 2025)
+Complete Progressive Web App mobile optimization for home screen:
+
+### PWA Configuration
+- `public/manifest.json` - Full PWA manifest with app icons and theme colors
+- `public/sw.js` - Service worker for offline caching
+- PWA meta tags in layout.js for iOS and Android support
+
+### Mobile-Optimized Components
+- **Navbar**: Slide-in mobile menu from right with backdrop blur, staggered animations, compact h-11 height, touch-friendly controls
+- **Artisan Ticker**: Responsive sizing (28px mobile, 36px desktop), compact fonts and padding
+- **Hero Section**: min-h-[70vh] on mobile, responsive text (text-3xl), horizontal CTA buttons
+- **Top Eco Picks**: Horizontal swipeable cards with mobile-scroll-snap, touch events for autoplay pause
+- **Category Navigation**: Horizontal scroll with snap behavior, smaller icons (w-10 h-10), compact text
+- **Hot Deals**: Touch events for autoplay pause, mobile-optimized dropdown filter, 2-column grid
+- **Best Sellers**: Touch events for autoplay pause, responsive grid and sizing
+
+### Mobile CSS Features (globals.css)
+- `mobile-scroll-snap` - Horizontal scroll snap container
+- `mobile-card` - Touch-friendly card styles with active states
+- Mobile animations: `mobile-slide-up`, `mobile-fade-in`, `mobile-scale-in`, `mobile-bounce`
+- PWA standalone mode styles with safe-area inset support
+- Touch optimization with `-webkit-tap-highlight-color: transparent`
 - Removed Turbopack due to symlink issues in Replit environment
 - Added allowedDevOrigins configuration for cross-origin requests
 - Set up deployment configuration for Replit

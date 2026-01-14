@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useAuth } from "@/hooks/useAuth";
 import AdminSidebar from "@/components/admin/AdminSidebar";
 import AdminTopbar from "@/components/admin/AdminTopbar";
 import DashboardScreen from "@/components/admin/screens/DashboardScreen";
@@ -15,17 +14,30 @@ import SettingsScreen from "@/components/admin/screens/SettingsScreen";
 export default function AdminDashboard() {
   const [activeScreen, setActiveScreen] = useState("dashboard");
   const [isLoading, setIsLoading] = useState(true);
-  const { user, loading } = useAuth();
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
-    if (!loading) {
-      if (!user || user.user_role !== "admin") {
-        window.location.href = "/admin/login";
-      } else {
-        setIsLoading(false);
-      }
+    // Check for admin token in localStorage
+    const adminToken = localStorage.getItem("adminToken");
+    const adminUser = localStorage.getItem("adminUser");
+    
+    if (!adminToken) {
+      // Redirect to login if no token
+      window.location.href = "/admin/login";
+    } else if (adminUser) {
+      // Set user from localStorage
+      setUser(JSON.parse(adminUser));
+      setIsLoading(false);
+    } else {
+      // Fallback: create admin user object
+      setUser({
+        email: "admin@aveoearth.com",
+        user_role: "admin",
+        name: "Admin"
+      });
+      setIsLoading(false);
     }
-  }, [user, loading]);
+  }, []);
 
   const renderScreen = () => {
     switch (activeScreen) {
@@ -48,7 +60,7 @@ export default function AdminDashboard() {
     }
   };
 
-  if (loading || isLoading) {
+  if (isLoading) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">

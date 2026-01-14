@@ -198,8 +198,8 @@ function ProductTile3D({ product, index, isActive, compact = false }) {
     setIsHovered(false);
   };
 
-  const imageHeight = compact ? "h-24 sm:h-28 md:h-32 lg:h-36" : "h-56";
-  const padding = compact ? "p-2 sm:p-3" : "p-4";
+  const imageHeight = compact ? "h-16 sm:h-20 md:h-24" : "h-56";
+  const padding = compact ? "p-1.5 sm:p-2" : "p-4";
 
   return (
     <motion.div
@@ -295,12 +295,12 @@ function ProductTile3D({ product, index, isActive, compact = false }) {
         </div>
 
         <div className={padding}>
-          <h3 className={`font-semibold text-gray-800 ${compact ? "text-xs" : "text-sm"} mb-1 line-clamp-1 group-hover:text-olive-700 transition-colors`}>
+          <h3 className={`font-semibold text-gray-800 ${compact ? "text-[10px] leading-tight" : "text-sm"} mb-0.5 line-clamp-1 group-hover:text-olive-700 transition-colors`}>
             {product.name}
           </h3>
-          <div className="flex items-center gap-2">
-            <span className={`${compact ? "text-sm" : "text-lg"} font-bold text-olive-600`}>{product.price}</span>
-            <span className={`${compact ? "text-xs" : "text-sm"} text-gray-400 line-through`}>{product.originalPrice}</span>
+          <div className="flex items-center gap-1">
+            <span className={`${compact ? "text-xs" : "text-lg"} font-bold text-olive-600`}>{product.price}</span>
+            <span className={`${compact ? "text-[9px]" : "text-sm"} text-gray-400 line-through`}>{product.originalPrice}</span>
           </div>
         </div>
 
@@ -352,20 +352,22 @@ export default function TopPicksSection({ compact = false }) {
   if (compact) {
     return (
       <div 
-        className="relative bg-white/80 backdrop-blur-sm rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-5 shadow-xl border border-white/50"
+        className="relative bg-white/90 backdrop-blur-sm rounded-xl sm:rounded-xl p-2 sm:p-3 shadow-lg border border-white/50"
         onMouseEnter={() => setIsHoveringSection(true)}
         onMouseLeave={() => setIsHoveringSection(false)}
+        onTouchStart={() => setIsHoveringSection(true)}
+        onTouchEnd={() => setTimeout(() => setIsHoveringSection(false), 3000)}
       >
-        <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center gap-2">
-            <Sparkles className="w-5 h-5 text-olive-500" />
-            <h2 className="text-lg font-bold text-gray-800">
+        <div className="flex items-center justify-between mb-2">
+          <div className="flex items-center gap-1.5">
+            <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-olive-500" />
+            <h2 className="text-xs sm:text-sm font-bold text-gray-800">
               Top <span className="text-olive-600">Eco Picks</span>
             </h2>
           </div>
           <Link 
             href="/explore"
-            className="text-sm text-olive-600 hover:text-olive-700 font-medium"
+            className="text-[10px] sm:text-xs text-olive-600 hover:text-olive-700 font-medium active:scale-95 transition-transform"
           >
             View All →
           </Link>
@@ -374,33 +376,34 @@ export default function TopPicksSection({ compact = false }) {
         <div className="relative">
           <button
             onClick={prevSet}
-            className="absolute -left-2 top-1/2 -translate-y-1/2 z-20 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center border border-gray-200 hover:border-olive-300 transition-colors"
+            className="absolute -left-1 top-1/2 -translate-y-1/2 z-20 w-5 h-5 sm:w-6 sm:h-6 bg-white rounded-full shadow-md flex items-center justify-center border border-gray-200 hover:border-olive-300 active:scale-90 transition-all"
           >
-            <ChevronLeft className="w-4 h-4 text-gray-600" />
+            <ChevronLeft className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-gray-600" />
           </button>
 
           <button
             onClick={nextSet}
-            className="absolute -right-2 top-1/2 -translate-y-1/2 z-20 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center border border-gray-200 hover:border-olive-300 transition-colors"
+            className="absolute -right-1 top-1/2 -translate-y-1/2 z-20 w-5 h-5 sm:w-6 sm:h-6 bg-white rounded-full shadow-md flex items-center justify-center border border-gray-200 hover:border-olive-300 active:scale-90 transition-all"
           >
-            <ChevronRight className="w-4 h-4 text-gray-600" />
+            <ChevronRight className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-gray-600" />
           </button>
 
-          <div className="px-1 sm:px-2">
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-3">
+          <div className="px-0.5 sm:px-1 overflow-x-auto mobile-scroll-snap sm:overflow-visible">
+            <div className="flex sm:grid sm:grid-cols-3 md:grid-cols-4 gap-1.5 sm:gap-2 pb-1 sm:pb-0">
               {getCurrentProducts().map((product, index) => (
-                <ProductTile3D
-                  key={`${currentSet}-${product.id}`}
-                  product={product}
-                  index={index}
-                  isActive={true}
-                  compact={true}
-                />
+                <div key={`${currentSet}-${product.id}`} className="flex-shrink-0 w-[120px] sm:w-auto">
+                  <ProductTile3D
+                    product={product}
+                    index={index}
+                    isActive={true}
+                    compact={true}
+                  />
+                </div>
               ))}
             </div>
           </div>
 
-          <div className="flex justify-center mt-4 gap-2">
+          <div className="flex justify-center mt-2 gap-1">
             {Array.from({ length: totalSets }).map((_, index) => (
               <button
                 key={index}
@@ -408,8 +411,8 @@ export default function TopPicksSection({ compact = false }) {
                   setIsAutoPlaying(false);
                   setCurrentSet(index);
                 }}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  index === currentSet ? "w-6 bg-olive-500" : "w-2 bg-gray-300 hover:bg-olive-300"
+                className={`h-1 sm:h-1.5 rounded-full transition-all duration-300 ${
+                  index === currentSet ? "w-3 sm:w-4 bg-olive-500" : "w-1 sm:w-1.5 bg-gray-300 hover:bg-olive-300"
                 }`}
               />
             ))}
